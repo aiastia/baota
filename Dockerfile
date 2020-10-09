@@ -17,13 +17,12 @@ RUN mkdir -p /www/letsencrypt \
 RUN cd /home \
     && apt-get update \
     && sudo apt-get upgrade -y \
-    && yum -y install wget openssh-server \
+    && apt-get install -y wget openssh-server \
     && echo 'Port 63322' > /etc/ssh/sshd_config \
     && wget -O install.sh http://download.bt.cn/install/install_6.0.sh \
     && echo y | bash install.sh \
     && python /set_default.py \
-    && echo '["linuxsys", "webssh"]' > /www/server/panel/config/index.json \
-    && yum clean all
+    && echo '["linuxsys", "webssh"]' > /www/server/panel/config/index.json
 
 WORKDIR /www/wwwroot
 CMD /entrypoint.sh
