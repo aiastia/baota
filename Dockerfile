@@ -15,7 +15,7 @@ RUN mkdir -p /www/letsencrypt \
 #更新系统 安装依赖 安装宝塔面板
 RUN cd /home \
     && apt-get update \
-    && sudo apt-get upgrade -y \
+    && apt-get upgrade -y \
     && apt-get install -y wget openssh-server \
     && echo 'Port 63322' > /etc/ssh/sshd_config \
     && wget -O install.sh http://download.bt.cn/install/install_6.0.sh \
