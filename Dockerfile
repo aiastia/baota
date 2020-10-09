@@ -7,7 +7,6 @@ COPY set_default.py /set_default.py
 
 RUN mkdir -p /www/letsencrypt \
     && ln -s /www/letsencrypt /etc/letsencrypt \
-    && rm -f /etc/init.d \
     && mkdir /www/init.d \
     && ln -s /www/init.d /etc/init.d \
     && chmod +x /entrypoint.sh \
