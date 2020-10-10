@@ -3,8 +3,8 @@ os.chdir("/www/server/panel/")
 sys.path.append("/www/server/panel/class/")
 import public,db
 
-username = 'username'
-password = 'password'
+username = 'admin'
+password = 'admin'
 
 sql = db.Sql()
 sql.table('users').where('id=?',(1,)).setField('password',public.md5(password))
