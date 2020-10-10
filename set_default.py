@@ -7,8 +7,9 @@ username = 'admin'
 password = 'admin'
 
 sql = db.Sql()
-sql.table('users').where('id=?',(1,)).setField('password',public.md5(password))
-sql.table('users').where('id=?',(1,)).setField('username',username)
+result = sql.table('users').where('id=?',(1,)).setField('password',public.password_salt(public.md5(password),uid=1))
+username = sql.table('users').where('id=?',(1,)).getField('username')
 
 public.writeFile('data/admin_path.pl', '/')
 public.writeFile('default.pl', password)
+
