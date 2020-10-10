@@ -1,4 +1,4 @@
-FROM aiastia/bt:clear
+FROM aiastia/bt:clear-bt
 MAINTAINER ai
 
 RUN bash /www/server/panel/install/install_soft.sh 0 install nginx 1.17
